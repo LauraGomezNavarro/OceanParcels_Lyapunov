@@ -2,7 +2,7 @@
 
 ## Theory
 
-## Algorith implementation
+## Algorithm implementation
 
 ## Validation
 
