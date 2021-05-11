@@ -14,5 +14,5 @@ Source link : https://resources.marine.copernicus.eu/?option=com_csw&view=detail
   * Date of FTLEs and FSLEs calculation: 01/11/2019. 
   * Calculation parameters:
     * d0 = (spatial separation)
-    * dt =
+    * dt = (timestep)
     * T  =  (time period)
