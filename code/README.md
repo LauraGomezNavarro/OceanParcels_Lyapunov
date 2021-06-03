@@ -2,7 +2,7 @@
 
 ## Theory
 
-FTLE = $\frac{ln(r)}{T}$ <br>
+![equation] FTLE = $\frac{ln(r)}{T}$ <br>
 
 ; r = $\frac{\Delta f}{\Delta i}$ <br> 
 ; T = time passed
