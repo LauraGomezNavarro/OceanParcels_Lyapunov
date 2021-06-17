@@ -68,7 +68,7 @@ for i in range(1, H-1): # 0, H-2
             lamda = LA.eigvals(D)
             ##-->same
             lam_max = max(lamda)
-            FTLE_f[i][j] = (1/Td) * np.log(lam_max)
+            FTLE_f[i][j] = (1/Td) * np.log(np.sqrt(lam_max))
             ##-->from sinha paper and from https://github.com/anirban89/llc_offline_lagrangian_analysis/blob/master/plot_lagrangian_diagnostics.ipynb
 
 savedir = '/data/oceanparcels/output_data/data_LauraGN/outputs_parcels/FTLE/'
