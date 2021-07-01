@@ -5,4 +5,5 @@
 
 
 (1) http://cwrowley.princeton.edu/papers/BruntonChaos09.pdf
+<br>
 (2) http://dx.doi.org/10.1063/1.4928210
