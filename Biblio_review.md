@@ -1,6 +1,8 @@
 | Reference | Formula | Application | Region | Time period | FTLE range |
 | :-: | :-: | :-: | :-: | :-: | :-: |
 | Brunton and Rowley (2009)<sup>1</sup> | ![formula](https://latex.codecogs.com/svg.image?%5Cfrac%7B1%7D%7B%5Cleft%7CT%20%5Cright%7C%7Dlog%5Csqrt%7B%5Clambda%20_%7Bmax%7D%5Cleft%20(%20%5CDelta%20%5Cleft%20(%20x%20%5Cright%20)%20%5Cright%20)%7D%20) | xxxx | xxxx | xxxx | xxxx |
+| Allshouse and Peacock (2015) <sup>2</sup> | ![formula](https://latex.codecogs.com/svg.image?\frac{1}{2(t-t_{0})}&space;log&space;(\lambda_{2})) | xxxx | xxxx | xxxx | xxxx |
 
 
 (1) http://cwrowley.princeton.edu/papers/BruntonChaos09.pdf
+(2) http://dx.doi.org/10.1063/1.4928210
