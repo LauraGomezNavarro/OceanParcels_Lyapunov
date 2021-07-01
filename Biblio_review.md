@@ -5,6 +5,7 @@
 | Waugh et al (2006) <sup>3</sup> | ![formula](https://latex.codecogs.com/svg.image?%5Cfrac%7B1%7D%7B%5Ctau%20%7D%20log%20%5Cleft%20%5B%20%5Cfrac%7B%5Cleft%7C%20%5Cdelta%20%5Ctextbf%7Bx%7D%5Cleft%20(%20%5Ctau%20%20%5Cright%20)%5Cright%7C%7D%7B%5Cleft%7C%20%5Cdelta%20%5Ctextbf%7Bx%7D%5Cleft%20(%200%20%5Cright%20)%5Cright%7C%7D%20%5Cright%20%5D) | xxxx | Tasman Sea | snapshot over 15 days | 0 : 0.25 <sup>3.1</sup> |
 | Titaud et al (2011) <sup>4</sup> | ![formula](https://latex.codecogs.com/svg.image?%5Cfrac%7B1%7D%7B%7CT%7C%7D%20ln%5Csqrt%7B%5Clambda_%7Bmax%7D%5Cleft%20(%20%5CDelta%20%20%5Cright%20)%20%7D) | xxxx | xxxx | xxxx | .15 : -.55xxxx |
 | Nolan et al (2020) <sup>5</sup> | ![formula](https://latex.codecogs.com/svg.image?%5Cfrac%7B1%7D%7B2%5Cleft%7C%20T%20%5Cright%7C%7D%20log%20%5Clambda%20_%7Bn%7D) | xxxx | xxxx | xxxx | xxxx |
+| Shadden | ![formula](https://latex.codecogs.com/svg.image?%5Cfrac%7B1%7D%7B%5Cleft%7C%20T%20%5Cright%7C%7D%20ln%20%5Cleft%5C%7C%20%5Cfrac%7Bd%20%5Cphi%20_%7Bt_%7B0%7D%7D%5E%7Bt&plus;T%7D%20%5Cleft%20(%20%5Ctextbf%7Bx%7D%20%5Cright%20)%7D%7Bd%5Ctextbf%7Bx%7D%7D%5Cright%5C%7C) | xxxx | xxxx | xxxx | xxxx |
 
 (1) http://cwrowley.princeton.edu/papers/BruntonChaos09.pdf
 <br>
