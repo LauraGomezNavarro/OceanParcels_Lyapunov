@@ -2,8 +2,8 @@
 | :-: | :-: | :-: | :-: | :-: | :-: |
 | Brunton and Rowley (2009)<sup>1</sup> | ![formula](https://latex.codecogs.com/svg.image?%5Cfrac%7B1%7D%7B%5Cleft%7CT%20%5Cright%7C%7Dlog%5Csqrt%7B%5Clambda%20_%7Bmax%7D%5Cleft%20(%20%5CDelta%20%5Cleft%20(%20x%20%5Cright%20)%20%5Cright%20)%7D%20) | xxxx | xxxx | xxxx | xxxx |
 | Allshouse and Peacock (2015) <sup>2</sup> | ![formula](https://latex.codecogs.com/svg.image?\frac{1}{2(t-t_{0})}&space;log&space;(\lambda_{2})) | xxxx | xxxx | xxxx | xxxx |
-| Waugh et al (2006) <sup>3</sup> | ![formula](https://latex.codecogs.com/svg.image?%5Cfrac%7B1%7D%7B%5Ctau%20%7D%20log%20%5Cleft%20%5B%20%5Cfrac%7B%5Cleft%7C%20%5Cdelta%20%5Ctextbf%7Bx%7D%5Cleft%20(%20%5Ctau%20%20%5Cright%20)%5Cright%7C%7D%7B%5Cleft%7C%20%5Cdelta%20%5Ctextbf%7Bx%7D%5Cleft%20(%200%20%5Cright%20)%5Cright%7C%7D%20%5Cright%20%5D) | xxxx | Tasman Sea | 1 15 days | 0-0.25 <sup>3.1</sup> |
-| Titaud et al (2011) <sup>4</sup> | ![formula](https://latex.codecogs.com/svg.image?%5Cfrac%7B1%7D%7B%7CT%7C%7D%20ln%5Csqrt%7B%5Clambda_%7Bmax%7D%5Cleft%20(%20%5CDelta%20%20%5Cright%20)%20%7D) | xxxx | xxxx | xxxx | xxxx |
+| Waugh et al (2006) <sup>3</sup> | ![formula](https://latex.codecogs.com/svg.image?%5Cfrac%7B1%7D%7B%5Ctau%20%7D%20log%20%5Cleft%20%5B%20%5Cfrac%7B%5Cleft%7C%20%5Cdelta%20%5Ctextbf%7Bx%7D%5Cleft%20(%20%5Ctau%20%20%5Cright%20)%5Cright%7C%7D%7B%5Cleft%7C%20%5Cdelta%20%5Ctextbf%7Bx%7D%5Cleft%20(%200%20%5Cright%20)%5Cright%7C%7D%20%5Cright%20%5D) | xxxx | Tasman Sea | 1 15 days | 0 : 0.25 <sup>3.1</sup> |
+| Titaud et al (2011) <sup>4</sup> | ![formula](https://latex.codecogs.com/svg.image?%5Cfrac%7B1%7D%7B%7CT%7C%7D%20ln%5Csqrt%7B%5Clambda_%7Bmax%7D%5Cleft%20(%20%5CDelta%20%20%5Cright%20)%20%7D) | xxxx | xxxx | xxxx | .15 : -.55xxxx |
 
 (1) http://cwrowley.princeton.edu/papers/BruntonChaos09.pdf
 <br>
