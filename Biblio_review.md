@@ -9,6 +9,7 @@
 | Johnson and Meneveau (2015) <sup>7</sup> | ![formula](https://latex.codecogs.com/svg.image?%5Cfrac%7B1%7D%7Bt-t_%7B0%7D%7D%20ln%5Cleft%20(%20%5Csigma%20_%7Bi%7D%5Cleft%20(%20%5Cmathbf%7BX%7D,t%20%5Cright%20)%20%5Cright%20)) | xxxx | xxxx | xxxx | 0:10 |
 | Balasuriya (2020) <sup>8</sup> | ![formula](https://latex.codecogs.com/svg.image?%5Cfrac%7B1%7D%7B%5Cleft%7C%20T%20%5Cright%7C%7Dln%20%5Cleft%20%5Bsup_%7B%20%5Ctextbf%7By%7D%20%5Cneq%200%7D%20%5Cfrac%7B%5Cleft%7C%20%5Cnabla%5Ctextbf%7BF%7D%5Cleft%20(%20%5Ctextbf%7Bx%7D_%7B0%7D%20%5Cright%20)%20%5Ctextbf%7By%7D%5Cright%7C%7D%7B%5Cleft%7C%20%5Ctextbf%7By%7D%5Cright%7C%7D%20%5Cright%20%5D) | xxxx | xxxx | xxxx | xxx |
 | Nolan et al (2020) <sup>9</sup> | ![formula](https://latex.codecogs.com/svg.image?%5Cfrac%7B1%7D%7B2%5Cleft%7C%20T%20%5Cright%7C%7D%20log%20%5Clambda%20_%7Bn%7D) | xxxx | xxxx | xxxx | xxxx |
+| Sinha et al (2019) <sup>9</sup> | ![formula](https://latex.codecogs.com/svg.image?%5Cfrac%7B1%7D%7Bt-t_%7B0%7D%7D%20log%20(%20%5Clambda%20_%7B2%7D)) | xxxx | xxxx | xxxx | xxxx |
 
 (1) https://doi.org/10.1016/j.physd.2005.10.007
 <br>
@@ -29,4 +30,4 @@
 (8) https://doi.org/10.3934/jcd.2020013
 <br>
 (9) https://doi.org/10.1007/s11071-020-05713-4
-
+(10) https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2018MS001508
