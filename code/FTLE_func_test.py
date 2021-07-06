@@ -5,8 +5,8 @@ import numpy.linalg as LA
 
 def dist_pairs_km(inlon1, inlon2, inlat1, inlat2):
     """
+    Haversine formula used, which assumes the Earth is a sphere.
     source: https://stackoverflow.com/questions/19412462/getting-distance-between-two-points-based-on-latitude-longitude
-    
     """
     # approximate radius of earth in km
     R = 6373.0
