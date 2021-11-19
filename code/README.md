@@ -2,11 +2,10 @@
 
 ## Theory
 
-FTLE = $\frac{ln(r)}{T}$ <br>
-
 ![formula](https://latex.codecogs.com/svg.image?FTLE&space;=&space;\frac{ln(r)}{T})
 
 ; r = $\frac{\Delta f}{\Delta i}$ <br> 
+![formula](https://latex.codecogs.com/svg.image?r&space;=&space;\frac{\Delta&space;f}{\Delta&space;i})
 ; T = time passed
 
 ## Algorithm implementation
