@@ -4,6 +4,8 @@
 
 FTLE = $\frac{ln(r)}{T}$ <br>
 
+![formula](https://latex.codecogs.com/svg.image?FTLE&space;=&space;\frac{ln(r)}{T})
+
 ; r = $\frac{\Delta f}{\Delta i}$ <br> 
 ; T = time passed
 
