@@ -4,7 +4,7 @@
 
 ![formula](https://latex.codecogs.com/svg.image?FTLE&space;=&space;\frac{ln(r)}{T})
 
-![formula](https://latex.codecogs.com/svg.image?r&space;=&space;\frac{\Delta&space;f}{\Delta&space;i})
+; ![formula](https://latex.codecogs.com/svg.image?r&space;=&space;\frac{\Delta&space;f}{\Delta&space;i})
 <br>; T = time passed
 
 ## Algorithm implementation
