@@ -11,6 +11,5 @@ Laura Gomez Navarro (1), Veronica Morales Marquez(2), Ismael Hernandez Carrasco(
 
 # HISTORY:
 - Created : 20/04/2021
-- ??: version 1
-- Update: ??/??/????
+- Version 1
 - Latest update: ??/??/????
