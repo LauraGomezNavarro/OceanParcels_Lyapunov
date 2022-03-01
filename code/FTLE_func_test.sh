@@ -17,4 +17,4 @@
 #
 
 cd /nethome/gomez023/parcels_Azores/FTLE/
-python3 FTLE_func_test03.py
+python3 -c 'from FTLE_func_test import *; FTLE(filename='/data/oceanparcels/output_data/data_LauraGN/outputs_parcels/wtides/monthly/' + 'Particle_AZO_grid100000p_wtides_0601_hourly_MONTH.nc', Td=30., step=0.04, domain=[-35, -18, 30, 40], savename='FTLE_wtides_0601.npz')'
