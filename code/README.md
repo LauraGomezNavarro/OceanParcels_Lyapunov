@@ -21,8 +21,6 @@ Let's say you want to calculate the FTLE field for the 1st of June with a partic
 
 #### FTLE calculation from OceanParcels outputs
 
-
-
 ### Validation
 
 ### Dataset:
@@ -33,4 +31,6 @@ Let's say you want to calculate the FTLE field for the 1st of June with a partic
 
 ### Example
 
-
+### Files
+* FTLE_func_test.py : FTLE python function to apply on parcels' outputs
+* FTLE_func_test.sh : Example file to launch code from GEMINI
