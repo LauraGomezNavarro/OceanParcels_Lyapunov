@@ -66,13 +66,10 @@ def FTLE(filename, Td, savename):
             else:
 
                 D = np.dot(np.transpose(J),J)
-                ##-->same
-                # its largest eigenvalue
+                # its largest eigenvalue:
                 lamda = LA.eigvals(D)
-                ##-->same
                 lam_max = max(lamda)
                 FTLE_f[i][j] = (1/Td) * np.log(np.sqrt(lam_max))
-                ##-->from sinha paper and from https://github.com/anirban89/llc_offline_lagrangian_analysis/blob/master/plot_lagrangian_diagnostics.ipynb
                 
     np.savez(savename, FTLE_f=FTLE_f) 
 
