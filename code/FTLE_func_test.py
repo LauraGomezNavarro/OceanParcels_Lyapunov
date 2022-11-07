@@ -28,11 +28,11 @@ def dist_pairs_km(inlon1, inlon2, inlat1, inlat2):
 
 def FTLE(filename, Td, step, domain, savename):
     """
-    filename: example '/data/oceanparcels/output_data/data_LauraGN/outputs_parcels/wtides/monthly/' + 'Particle_AZO_grid100000p_wtides_0601_hourly_MONTH.nc'
-    Td = Simualtion length in days, for example 30. # days
-    step = initial separation of particles (in degrees).  Both in logitude and latitude. Example: step = .04 # degrees
-    domain = [minimum lon, maximum lon, minimum lat, maximum lat]; longitude in degrees East and latitude in degrees north. Example = [-35, -18, 30, 40]
-    savename = example savename = savedir + 'FTLE_wtides_0601.npz' #'KDE_' + nfile.split('/')[-1].split('.nc')[0] + '.npz' ; savedir = '/data/oceanparcels/output_data/data_LauraGN/outputs_parcels/FTLE/'
+    filename: input path and filename, for example, filename = '/data/oceanparcels/output_data/data_LauraGN/outputs_parcels/wtides/monthly/' + 'Particle_AZO_grid100000p_wtides_0601_hourly_MONTH.nc'
+    Td: Simualtion length in days, for example 30. # days
+    step: initial separation of particles (in degrees).  Both in logitude and latitude. Example: step = .04 # degrees
+    domain: [minimum lon, maximum lon, minimum lat, maximum lat]; longitude in degrees East and latitude in degrees north. Example = [-35, -18, 30, 40]
+    savename: output path and filename, for example, savename = savedir + 'FTLE_wtides_0601.npz' 
     
     """
 
