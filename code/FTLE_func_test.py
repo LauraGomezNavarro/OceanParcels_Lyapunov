@@ -35,8 +35,15 @@ def FTLE(filename, Td, step, domain, savename):
     savename: output path and filename, for example, savename = savedir + 'FTLE_wtides_0601.npz' 
     
     """
-
-    ds = xr.open_dataset(filename)
+    # Checking if file is netcdf or zarr and opening with zarray open_dataset accordingly
+    if filename.split('.')[-1][0:2] == 'nc':
+        ds = xr.open_dataset(filename)
+    elif filename.split('.')[-1][0:2] == 'za':
+        ds = xr.open_dataset(filename, engine="zarr")
+        ds = ds.compute() # so that it goes faster and it does not have to go to each zarr file folder
+    else: 
+        print('File type or name error')
+        dsgjsdhkgh
 
     grid_lons, grid_lats = np.meshgrid(np.arange(domain[0], domain[1]+step, step), np.arange(domain[2], domain[3]+step, step))
 
