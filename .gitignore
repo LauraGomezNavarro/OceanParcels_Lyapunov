@@ -1,0 +1,5 @@
+# Data
+data/*.nc
+
+# Jupyter Notebook
+.ipynb_checkpoints
