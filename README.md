@@ -3,7 +3,7 @@ Calculating Finite Time Lyapunov Exponents from OceanParcels outputs.
 
 ## Collaborators:
 
-Laura Gomez Navarro (1), Veronica Morales Marquez(2), Ismael Hernandez Carrasco(2), Darshika Manral(1)
+Laura Gomez Navarro (1,2), Veronica Morales Marquez(2), Ismael Hernandez Carrasco(2), Darshika Manral(1), Michael Denes(1), Claudio Pierard(1)
 <br>
 (1) Utrecht University, Utrecht, Netherlands
 <br>
@@ -12,4 +12,4 @@ Laura Gomez Navarro (1), Veronica Morales Marquez(2), Ismael Hernandez Carrasco(
 # HISTORY:
 - Created : 20/04/2021
 - Version 1
-- Latest update: 04/04/2023
+- Latest update: 22/01/2024
