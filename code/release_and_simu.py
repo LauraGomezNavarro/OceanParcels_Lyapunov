@@ -14,8 +14,8 @@ def release_particles(grid_name, domain):
 
     Returns
     -------
-    lats, lons
-        arrays of latitude and longitude for release
+    lons, lats
+        arrays of longitude and latitude for release
 
     Raises
     ------
@@ -37,7 +37,7 @@ def release_particles(grid_name, domain):
     return lons, lats
 
 
-def parcels_simulation(datetime_in, lats, lons, simu_length, filename, outname):
+def parcels_simulation(datetime_in, lons, lats, simu_length, filename, outname):
     """
     datetime_in: e.g. datetime(2019, 10, 1, 0, 0)
     simu_length: in days e.g. 15.
@@ -64,7 +64,5 @@ def parcels_simulation(datetime_in, lats, lons, simu_length, filename, outname):
     # minutes=6*60
     pset.execute(AdvectionRK4, runtime=timedelta(days=simu_length), dt=timedelta(hours=6),
                  output_file=output_file)  # recovery={ErrorCode.ErrorOutOfBounds: DeleteParticle},
-
-    output_file.export()  # export the trajectory data to a netcdf file
 
     ####################
