@@ -3,3 +3,6 @@ data/*.nc
 
 # Jupyter Notebook
 .ipynb_checkpoints
+
+*.pyc
+*.zarr
