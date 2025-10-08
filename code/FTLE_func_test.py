@@ -3,25 +3,26 @@ import numpy as np
 import xarray as xr
 import numpy.linalg as LA
 
-def dist_pairs(inx1, inx2, iny1, iny2, coords):
+
+def dist_pairs(inx1, inx2, iny1, iny2, coords='degrees'):
     """
-    
+
     """
-    if coords = 'km':
-    # Euclidean distance calculated.
-    # source: https://www.delftstack.com/howto/numpy/calculate-euclidean-distance/#use-the-distance.euclidean-function-to-find-the-euclidean-distance-between-two-points
+    if coords == 'km':
+        # Euclidean distance calculated.
+        # source: https://www.delftstack.com/howto/numpy/calculate-euclidean-distance/#use-the-distance.euclidean-function-to-find-the-euclidean-distance-between-two-points
 
         a = np.array((inx1, iny1))
         b = np.array((inx2, iny2))
 
         distance = np.sqrt(np.sum(np.square(a - b)))
 
-    elif coords = 'degrees':
-    #Haversine formula used, which assumes the Earth is a sphere.
-    #source: https://stackoverflow.com/questions/19412462/getting-distance-between-two-points-based-on-latitude-longitude
-    
+    elif coords == 'degrees':
+        # Haversine formula used, which assumes the Earth is a sphere.
+        # source: https://stackoverflow.com/questions/19412462/getting-distance-between-two-points-based-on-latitude-longitude
+
         # approximate radius of earth in km
-        R = 6373.0
+        R = 6371.0
 
         lon1 = radians(inx1)
         lat1 = radians(iny1)
@@ -36,71 +37,115 @@ def dist_pairs(inx1, inx2, iny1, iny2, coords):
 
         distance = R * c
     else:
-        print('Missing coords. param.')
-        sdhskdhg
-        
+        raise ValueError('Missing coords. param.')
+
     return distance
 
-def FTLE(filename, Td, step, domain, coords, savename):
+
+def reshape_locations(loc, landmask):
+    reshaped_array = np.empty((landmask.shape))  # Create an empty 2D array
+    reshaped_array[:] = np.NAN
+
+    # Iterate through the landmask and assign locations to reshaped array
+    index = 0
+    for i in range(landmask.shape[0]):
+        for j in range(landmask.shape[1]):
+            if landmask[i][j]:
+                reshaped_array[i][j] = loc[index]
+                index += 1
+
+    return reshaped_array
+
+
+def FTLE(filename, Td, step, domain, coords, savename, out_index, landmask=None):
     """
     filename: input path and filename, for example, filename = '/data/oceanparcels/output_data/data_LauraGN/outputs_parcels/wtides/monthly/' + 'Particle_AZO_grid100000p_wtides_0601_hourly_MONTH.nc'
-    
+
     Td: Simualtion length in days, for example 30. # days
-    
+
     step: initial separation of particles (in degrees).  Both in longitude and latitude. Example: step = .04 # degrees
-    
+
     domain: [minimum lon, maximum lon, minimum lat, maximum lat]; longitude in degrees East and latitude in degrees north. Example = [-35, -18, 30, 40]
-    
+
     coords: Indicates the units of the coordinates of the input variables: 
     - 'degrees'
     - 'km'
-    
+
     savename: output path and filename, for example, savename = savedir + 'FTLE_wtides_0601.npz' 
-    
+
     """
     # Checking if file is netcdf or zarr and opening with zarray open_dataset accordingly
     if filename.split('.')[-1][0:2] == 'nc':
         ds = xr.open_dataset(filename)
     elif filename.split('.')[-1][0:2] == 'za':
         ds = xr.open_dataset(filename, engine="zarr")
-        ds = ds.compute() # so that it goes faster and it does not have to go to each zarr file folder
-    else: 
-        print('File type or name error')
-        dsgjsdhkgh
+        # so that it goes faster and it does not have to go to each zarr file folder
+        ds = ds.compute()
+    else:
+        raise ValueError('File type or name error')
 
-    grid_lons, grid_lats = np.meshgrid(np.arange(domain[0], domain[1]+step, step), np.arange(domain[2], domain[3]+step, step))
+    grid_lons, grid_lats = np.meshgrid(np.arange(
+        domain[0], domain[1]+step, step), np.arange(domain[2], domain[3]+step, step))
 
-    x0 = np.reshape(ds['lon'][:,0].data, ( grid_lons.shape[0], grid_lons.shape[1] ))
-    x1 = np.reshape(ds['lon'][:,-1].data,( grid_lons.shape[0], grid_lons.shape[1] ))
-    y0 = np.reshape(ds['lat'][:,0].data, ( grid_lons.shape[0], grid_lons.shape[1] )) 
-    y1 = np.reshape(ds['lat'][:,-1].data, ( grid_lons.shape[0], grid_lons.shape[1] ))
+    if landmask is not None:
+        # initial position
+        x0 = reshape_locations(ds['lon'][:, 0].values, landmask)
+        y0 = reshape_locations(ds['lat'][:, 0].values, landmask)
+        # final position
+        x1 = reshape_locations(ds['lon'][:, out_index].values, landmask)
+        y1 = reshape_locations(ds['lat'][:, out_index].values, landmask)
+    else:
+        x0 = np.reshape(ds['lon'][:, 0].data,
+                        (grid_lons.shape[0], grid_lons.shape[1]))
+        x1 = np.reshape(ds['lon'][:, out_index].data,
+                        (grid_lons.shape[0], grid_lons.shape[1]))
+        y0 = np.reshape(ds['lat'][:, 0].data,
+                        (grid_lons.shape[0], grid_lons.shape[1]))
+        y1 = np.reshape(ds['lat'][:, out_index].data,
+                        (grid_lons.shape[0], grid_lons.shape[1]))
 
-
-    H = x0.shape[0] 
+    H = x0.shape[0]
     L = x0.shape[1]
 
     FTLE_x = np.ones_like(x0) * np.nan
 
-    J = np.empty([2,2],float)
+    J = np.empty([2, 2], float)
 
     # 1, H-1 --> to ignore bordersx for now
-    for i in range(1, H-1): # 0, H-2
-        for j in range(1, L-1): # 0, L-2
-            J[0][0] = dist_pairs(x1[i,j],x1[i-1,j], y1[i,j],y1[i-1,j]) / dist_pairs(x0[i,j],x0[i-1,j], y0[i,j],y0[i-1,j])
-            ##gradF[:,0,0] = (X1rav[x1p] - X1rav[x1m])/dx1
-            J[0][1] = dist_pairs(x1[i,j],x1[i,j-1], y1[i,j],y1[i,j-1]) / dist_pairs(x0[i,j],x0[i,j-1], y0[i,j],y0[i,j-1])
-            J[1][0] = dist_pairs(x1[i,j],x1[i,j+1], y1[i,j],y1[i,j+1]) / dist_pairs(x0[i,j],x0[i,j+1], y0[i,j],y0[i,j+1])
-            J[1][1] = dist_pairs(x1[i,j],x1[i+1,j], y1[i,j],y1[i+1,j]) / dist_pairs(x0[i,j],x0[i+1,j], y0[i,j],y0[i+1,j])
+    for i in range(1, H-1):  # 0, H-2
+        for j in range(1, L-1):  # 0, L-2
+            J [:,:] = np.NaN
+            ls = np.array((x0[i, j], y0[i, j], 
+                        x0[i - 1, j], y0[i - 1, j], 
+                        x0[i, j - 1], y0[i, j - 1],
+                        x0[i, j + 1], y0[i, j + 1],
+                        x0[i + 1, j], y0[i + 1, j],
+                        x1[i, j], y1[i, j], 
+                        x1[i - 1, j], y1[i - 1, j], 
+                        x1[i, j - 1], y1[i, j - 1],
+                        x1[i, j + 1], y1[i, j + 1],
+                        x1[i + 1, j], y1[i + 1, j]))
+            if np.isnan(ls).any():
+                continue
+
+            J[0][0] = dist_pairs(x1[i, j], x1[i-1, j], y1[i, j], y1[i-1, j]) / \
+                dist_pairs(x0[i, j], x0[i-1, j], y0[i, j], y0[i-1, j])
+            # gradF[:,0,0] = (X1rav[x1p] - X1rav[x1m])/dx1
+            J[0][1] = dist_pairs(x1[i, j], x1[i, j-1], y1[i, j], y1[i, j-1]) / \
+                dist_pairs(x0[i, j], x0[i, j-1], y0[i, j], y0[i, j-1])
+            J[1][0] = dist_pairs(x1[i, j], x1[i, j+1], y1[i, j], y1[i, j+1]) / \
+                dist_pairs(x0[i, j], x0[i, j+1], y0[i, j], y0[i, j+1])
+            J[1][1] = dist_pairs(x1[i, j], x1[i+1, j], y1[i, j], y1[i+1, j]) / \
+                dist_pairs(x0[i, j], x0[i+1, j], y0[i, j], y0[i+1, j])
 
             if np.isnan(J).any():
-                continue  
+                continue
             else:
 
-                D = np.dot(np.transpose(J),J)
+                D = np.dot(np.transpose(J), J)
                 # its largest eigenvalue:
                 lamda = LA.eigvals(D)
                 lam_max = max(lamda)
                 FTLE_x[i][j] = (1/Td) * np.log(np.sqrt(lam_max))
-                
-    np.savez(savename, FTLE=FTLE_x) 
 
+    np.savez(savename, FTLE=FTLE_x)
